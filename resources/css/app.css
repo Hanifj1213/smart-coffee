@@ -1,0 +1,562 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-heading: 'Fredoka', 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+
+    /* Neo Brutalism Coffee Palette */
+    --color-coffee-50: #fdf8f0;
+    --color-coffee-100: #f5e6d0;
+    --color-coffee-200: #e8cba2;
+    --color-coffee-300: #d4a574;
+    --color-coffee-400: #c4864d;
+    --color-coffee-500: #a0603a;
+    --color-coffee-600: #7c4a2d;
+    --color-coffee-700: #5a3520;
+    --color-coffee-800: #3d2415;
+    --color-coffee-900: #291a0f;
+
+    --color-cream: #FFF8E7;
+    --color-latte: #C8A27A;
+    --color-espresso: #3C1518;
+    --color-mocha: #69432B;
+    --color-caramel: #E8A849;
+    --color-matcha: #7DB954;
+    --color-berry: #D64571;
+    --color-mint-y2k: #00E5A0;
+    --color-pink-y2k: #FF6B9D;
+    --color-blue-y2k: #4ECDC4;
+    --color-yellow-y2k: #FFE66D;
+    --color-orange-y2k: #FF8C42;
+    --color-purple-y2k: #C77DFF;
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* ========================================
+   TYPOGRAPHY: Fredoka + Nunito Sans
+   ======================================== */
+
+/* Heading font utility */
+.font-heading {
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+}
+
+/* Body font utility (default, explicit override) */
+.font-body {
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+}
+
+/* Apply Fredoka to all major headings globally */
+h1, h2, h3, h4 {
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+    letter-spacing: 0.01em !important; /* Fredoka glyphs are wide — override tracking-tight */
+}
+
+/*
+ * Fredoka is visually heavier than geometric sans at the same weight.
+ * Tone down font-black (900) to 500 on Fredoka headings so the page
+ * feels playful without being overwhelming.
+ */
+h1.font-black, h2.font-black, h3.font-black {
+    font-weight: 500;
+}
+
+/*
+ * Override tracking-tight / tracking-widest on uppercase labels.
+ * Fredoka's wide rounded glyphs need more breathing room than
+ * the previous Instrument Sans geometric font.
+ */
+.font-black.uppercase,
+.font-extrabold.uppercase {
+    letter-spacing: 0.04em !important;
+}
+
+/* Small label category headers — lighter tracking for rounded font */
+.tracking-widest {
+    letter-spacing: 0.08em !important;
+}
+
+/* Sidebar group headings use Fredoka */
+[data-flux-sidebar-group] [data-flux-heading] {
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+}
+
+/* Ticker/marquee text uses Fredoka Bold — needs generous spacing */
+.marquee {
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+    letter-spacing: 0.06em !important;
+}
+
+/* ========================================
+   NEO BRUTALISM + Y2K + COFFEE DESIGN SYSTEM
+   ======================================== */
+
+/* Neo Brutal Cards */
+.nb-card {
+    border: 3px solid #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nb-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #1a1a1a;
+}
+
+.nb-card-sm {
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0px #1a1a1a;
+    transition: all 0.15s ease;
+}
+
+.nb-card-sm:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+/* Neo Brutal Buttons */
+.nb-btn {
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #1a1a1a;
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+}
+
+.nb-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+.nb-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #1a1a1a;
+}
+
+/* Neo Brutal Badges */
+.nb-badge {
+    border: 2px solid #1a1a1a;
+    border-radius: 999px;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.75rem;
+    display: inline-block;
+}
+
+/* Neo Brutal Table */
+.nb-table {
+    border: 3px solid #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.nb-table th {
+    border-bottom: 3px solid #1a1a1a;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.nb-table td {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* Neo Brutal Inputs */
+.nb-input {
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #1a1a1a;
+    font-weight: 600;
+    transition: all 0.1s ease;
+}
+
+.nb-input:focus {
+    box-shadow: 4px 4px 0px #E8A849;
+    border-color: #E8A849;
+    outline: none;
+}
+
+/* Neo Brutal Select */
+.nb-select {
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #1a1a1a;
+    font-weight: 700;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a1a1a' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 2.5rem;
+}
+
+/* Coffee Pattern Background */
+.coffee-pattern {
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(200, 162, 122, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232, 168, 73, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(105, 67, 43, 0.04) 0%, transparent 50%);
+}
+
+/* Y2K Shimmer Animation */
+@keyframes y2k-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.y2k-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: y2k-shimmer 3s infinite;
+}
+
+/* Y2K Star Pulse */
+@keyframes star-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.star-pulse {
+    animation: star-pulse 2s ease-in-out infinite;
+}
+
+/* Neo Brutalism Progress Bar */
+.nb-progress {
+    border: 2px solid #1a1a1a;
+    border-radius: 999px;
+    height: 14px;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    overflow: hidden;
+}
+
+.nb-progress-fill {
+    border-radius: 999px;
+    height: 100%;
+    transition: width 0.5s ease;
+    background: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 4px,
+            rgba(0, 0, 0, 0.08) 4px,
+            rgba(0, 0, 0, 0.08) 8px);
+}
+
+/* Retro Dashed Separator */
+.retro-divider {
+    border-top: 3px dashed #1a1a1a;
+    opacity: 0.3;
+}
+
+/* Floating Coffee Beans Pattern */
+@keyframes float-bean {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+
+    75% {
+        transform: translateY(4px) rotate(-3deg);
+    }
+}
+
+.float-bean {
+    animation: float-bean 4s ease-in-out infinite;
+}
+
+/* Marquee Text */
+@keyframes marquee {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+}
+
+/* Ticker Bar — full-bleed regardless of parent padding */
+.ticker-bar {
+    border-top: 3px solid #1a1a1a;
+    border-bottom: 3px solid #1a1a1a;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+}
+
+/* Neo Brutalist Modal */
+.nb-modal-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.nb-modal {
+    border: 3px solid #1a1a1a;
+    border-radius: 16px;
+    box-shadow: 8px 8px 0px #1a1a1a;
+}
+
+/* Simulated Thermal Receipt Styles */
+.receipt-paper {
+    background-color: #fcfbf7;
+    color: #2b1f1d;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    position: relative;
+    padding: 20px;
+}
+
+.receipt-paper::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: radial-gradient(circle, transparent, transparent 50%, #1a1a1a 50%, #1a1a1a) 0 0 / 12px 12px repeat-x;
+}
+
+.receipt-dashed {
+    border-top: 2px dashed #2b1f1d;
+}
+
+.receipt-barcode {
+    height: 40px;
+    background: repeating-linear-gradient(90deg,
+            #2b1f1d,
+            #2b1f1d 2px,
+            transparent 2px,
+            transparent 6px,
+            #2b1f1d 6px,
+            #2b1f1d 8px,
+            transparent 8px,
+            transparent 10px);
+    opacity: 0.85;
+}
+
+/* Y2K Mock Mobile Phone Simulator */
+.phone-mockup {
+    border: 4px solid #1a1a1a;
+    border-radius: 24px;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    background: #111;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.phone-screen {
+    border: 2px solid #1a1a1a;
+    border-radius: 16px;
+    background: #efe9db;
+    /* vintage screen tone */
+    height: 380px;
+    overflow-y: auto;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-header {
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 800;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wa-bubble-in {
+    background: #fff;
+    border: 2px solid #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    padding: 8px;
+    max-width: 85%;
+    font-size: 10px;
+    line-height: 1.3;
+    font-weight: 700;
+    position: relative;
+}
+
+.wa-bubble-in::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #1a1a1a;
+    border-left: 6px solid transparent;
+}
+
+/* Elegant Dotted Ticket Design */
+.ticket-container {
+    background: var(--color-yellow-y2k);
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-stub {
+    border-top: 3px dashed #1a1a1a;
+    position: relative;
+}
+
+.ticket-stub::before,
+.ticket-stub::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-cream);
+    border: 3px solid #1a1a1a;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.ticket-stub::before {
+    left: -10px;
+}
+
+.ticket-stub::after {
+    right: -10px;
+}
+
+/* Y2K Star Stickers */
+.y2k-star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: var(--color-pink-y2k);
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+}
+
+/* Custom Mini Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-espresso);
+}

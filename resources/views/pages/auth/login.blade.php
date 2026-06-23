@@ -1,6 +1,6 @@
 <x-layouts::auth :title="__('Log in')">
     <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Seduh Akun Anda ☕')" :description="__('Masukkan email dan kata sandi Anda untuk mengakses dashboard CRM')" />
+        <x-auth-header :title="__('Seduh Akun Anda ☕')" :description="__('Masukkan email dan kata sandi Anda untuk mengakses dashboard')" />
 
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />

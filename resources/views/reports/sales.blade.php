@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="utf-8">
-    <title>Laporan Penjualan - Smart Coffee CRM</title>
+    <title>Laporan Penjualan - Smart Coffee</title>
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Arial, sans-serif; color: #2b1a12; margin: 32px; }
@@ -29,7 +29,7 @@
 
     <div class="header">
         <div>
-            <h1>☕ Smart Coffee CRM</h1>
+            <h1>☕ Smart Coffee</h1>
             <p class="muted">Laporan Penjualan & Loyalitas Pelanggan</p>
         </div>
         <div class="muted">Dibuat: {{ $generatedAt }}</div>

@@ -83,7 +83,7 @@
                 </div>
                 
                 <div class="space-y-1 text-center sm:text-left z-10">
-                    <p class="text-[9px] font-black text-espresso/70 uppercase tracking-widest">🎫 KUPON KAMPANYE CRM PERSONAL</p>
+                    <p class="text-[9px] font-black text-espresso/70 uppercase tracking-widest">🎫 KUPON KAMPANYE PERSONAL</p>
                     <p class="text-sm font-black text-espresso leading-snug">{{ $recommendedVoucher }}</p>
                     <p class="text-xs font-bold text-espresso/80">Menu Spesial: <strong class="text-espresso font-black underline">{{ $recommendedMenu }}</strong></p>
                 </div>
@@ -174,7 +174,7 @@
                     📱 Simulasi Push Notifikasi WA
                 </h3>
                 <p class="text-[10px] text-coffee-600 dark:text-coffee-400 font-semibold mt-0.5">
-                    Tampilan pesan WhatsApp real-time yang dikirim oleh sistem CRM ke HP Anda.
+                    Tampilan pesan WhatsApp real-time yang dikirim oleh sistem ke HP Anda.
                 </p>
             </div>
             
@@ -193,7 +193,7 @@
                         @endphp
                         @forelse($waNotifications as $waNotif)
                             <div class="wa-bubble-in text-left">
-                                <span class="block text-[8px] font-black text-berry uppercase tracking-wide mb-0.5">Smart Coffee CRM</span>
+                                <span class="block text-[8px] font-black text-berry uppercase tracking-wide mb-0.5">Smart Coffee</span>
                                 <p class="text-[9px] text-coffee-900 font-semibold">{{ $waNotif->message }}</p>
                                 <span class="block text-[7px] text-right text-coffee-400 mt-1 font-bold">{{ $waNotif->created_at->diffForHumans() }}</span>
                             </div>

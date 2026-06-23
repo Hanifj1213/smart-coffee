@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ config('app.name', 'Smart Coffee CRM') }}</title>
-        <meta name="description" content="Platform CRM untuk kedai kopi dengan algoritma KNN untuk personalisasi pelanggan dan program loyalitas otomatis.">
+        <title>{{ config('app.name', 'Smart Coffee') }}</title>
+        <meta name="description" content="Platform manajemen untuk kedai kopi dengan algoritma KNN untuk personalisasi pelanggan dan program loyalitas otomatis.">
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,12 +209,12 @@
     <body>
         <!-- TICKER -->
         <div class="ticker">
-            <span class="ticker-text">☕ SMART COFFEE CRM — PLATFORM LOYALITAS PELANGGAN BERBASIS DATA — POWERED BY KNN MACHINE LEARNING — OPERASIONAL & ANALITIK CRM — ☕</span>
+            <span class="ticker-text">☕ Smart Coffee — PLATFORM LOYALITAS PELANGGAN BERBASIS DATA — POWERED BY KNN MACHINE LEARNING — OPERASIONAL & ANALITIK TERPADU — ☕</span>
         </div>
 
         <!-- NAV -->
         <nav class="nav">
-            <div class="nav-logo">☕ Smart Coffee CRM</div>
+            <div class="nav-logo">☕ Smart Coffee</div>
             <div class="nav-links">
                 @if(Route::has('login'))
                     @auth
@@ -248,7 +248,7 @@
             <div class="hero-content">
                 <div class="hero-badge">🧠 Powered by KNN Algorithm</div>
                 <h1 class="hero-title">Kelola Pelanggan Kopi Anda dengan <span>Kecerdasan Data</span></h1>
-                <p class="hero-subtitle">Platform CRM lengkap untuk kedai kopi — loyalty engine otomatis, segmentasi pelanggan K-Nearest Neighbors, kasir POS terintegrasi, dan churn prevention cerdas.</p>
+                <p class="hero-subtitle">Platform manajemen lengkap untuk kedai kopi — loyalty engine otomatis, segmentasi pelanggan K-Nearest Neighbors, kasir POS terintegrasi, dan churn prevention cerdas.</p>
                 <div class="hero-cta">
                     @if(Route::has('login'))
                         @guest
@@ -302,7 +302,7 @@
 
         <!-- FOOTER -->
         <footer class="footer">
-            <p>☕ {{ date('Y') }} Smart Coffee CRM — Tugas Mata Kuliah CRM — Powered by Laravel & KNN Algorithm</p>
+            <p>☕ {{ date('Y') }} Smart Coffee — Tugas Mata Kuliah Pemrograman Web — Powered by Laravel & KNN Algorithm</p>
         </footer>
     </body>
 </html>

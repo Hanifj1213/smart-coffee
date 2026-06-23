@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         // 1. Create Admin
         User::create([
-            'name' => 'Admin CRM',
+            'name' => 'Admin',
             'email' => 'admin@coffee.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Gratis Croissant Butter', 'deskripsi' => 'Tukar poin dengan 1 Croissant Butter renyah.', 'kategori' => 'Produk', 'poin_cost' => 2000, 'stok' => 50, 'icon' => '🥐'],
             ['nama' => 'Free Caffe Latte', 'deskripsi' => 'Nikmati 1 cangkir Caffe Latte gratis.', 'kategori' => 'Produk', 'poin_cost' => 2500, 'stok' => null, 'icon' => '🥛'],
             ['nama' => 'Cheesecake Premium', 'deskripsi' => 'Sepotong Cheesecake Premium istimewa.', 'kategori' => 'Produk', 'poin_cost' => 4000, 'stok' => 30, 'icon' => '🍰'],
-            ['nama' => 'Tumbler Eksklusif Smart Coffee', 'deskripsi' => 'Tumbler edisi terbatas Smart Coffee CRM.', 'kategori' => 'Merchandise', 'poin_cost' => 8000, 'stok' => 20, 'icon' => '🥤'],
+            ['nama' => 'Tumbler Eksklusif Smart Coffee', 'deskripsi' => 'Tumbler edisi terbatas Smart Coffee.', 'kategori' => 'Merchandise', 'poin_cost' => 8000, 'stok' => 20, 'icon' => '🥤'],
             ['nama' => 'Tote Bag Limited Edition', 'deskripsi' => 'Tote bag kanvas eksklusif untuk member setia.', 'kategori' => 'Merchandise', 'poin_cost' => 6000, 'stok' => 25, 'icon' => '👜'],
             ['nama' => 'Voucher Gratis Ongkir', 'deskripsi' => 'Gratis ongkos kirim untuk pesanan delivery.', 'kategori' => 'Voucher', 'poin_cost' => 1000, 'stok' => 200, 'icon' => '🚚'],
         ];
@@ -273,14 +273,14 @@ class DatabaseSeeder extends Seeder
             CrmNotification::create([
                 'user_id' => $user->id,
                 'type' => 'WhatsApp',
-                'message' => "Halo {$user->name}, selamat! Anda terdaftar sebagai member di Smart Coffee CRM. Kumpulkan transaksi untuk naik ke Silver dan nikmati diskon 5%!",
+                'message' => "Halo {$user->name}, selamat! Anda terdaftar sebagai member di Smart Coffee. Kumpulkan transaksi untuk naik ke Silver dan nikmati diskon 5%!",
                 'created_at' => Carbon::now()->subDays(10),
             ]);
 
             CrmNotification::create([
                 'user_id' => $user->id,
                 'type' => 'Email',
-                'message' => 'Selamat bergabung di Smart Coffee CRM! Dapatkan update promo personal terbaik Anda di dashboard.',
+                'message' => 'Selamat bergabung di Smart Coffee! Dapatkan update promo personal terbaik Anda di dashboard.',
                 'created_at' => Carbon::now()->subDays(10),
             ]);
         }

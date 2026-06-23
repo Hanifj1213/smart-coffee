@@ -77,7 +77,7 @@ class RewardCatalog extends Component
                 CrmNotification::create([
                     'user_id' => $user->id,
                     'type' => 'Email',
-                    'message' => "Penukaran Reward Smart Coffee CRM\nReward: {$reward->nama}\nPoin digunakan: {$reward->poin_cost}\nKode Voucher: {$code}\nTunjukkan kode ini ke kasir untuk klaim reward Anda.",
+                    'message' => "Penukaran Reward Smart Coffee\nReward: {$reward->nama}\nPoin digunakan: {$reward->poin_cost}\nKode Voucher: {$code}\nTunjukkan kode ini ke kasir untuk klaim reward Anda.",
                 ]);
 
                 return [

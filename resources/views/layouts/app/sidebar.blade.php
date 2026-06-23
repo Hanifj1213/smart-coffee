@@ -12,7 +12,7 @@
 
             @if(auth()->user()->role === 'admin')
                 <flux:sidebar.nav>
-                    <flux:sidebar.group :heading="__('☕ Admin CRM')" class="grid">
+                    <flux:sidebar.group :heading="__('☕ Admin')" class="grid">
                         <flux:sidebar.item icon="home" :href="route('admin.dashboard')" :current="request()->routeIs('admin.dashboard')" wire:navigate>
                             {{ __('Dashboard Analitik') }}
                         </flux:sidebar.item>
@@ -43,7 +43,7 @@
                 </flux:sidebar.nav>
             @else
                 <flux:sidebar.nav>
-                    <flux:sidebar.group :heading="__('☕ Loyalty CRM')" class="grid">
+                    <flux:sidebar.group :heading="__('☕ Loyalty')" class="grid">
                         <flux:sidebar.item icon="home" :href="route('member.dashboard')" :current="request()->routeIs('member.dashboard')" wire:navigate>
                             {{ __('Loyalty Member') }}
                         </flux:sidebar.item>

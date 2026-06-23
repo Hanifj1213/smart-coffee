@@ -40,7 +40,7 @@
             <!-- Coffee -->
             <div class="nb-card bg-cream dark:bg-coffee-900 p-6">
                 <h3 class="mb-3 text-xs font-black uppercase tracking-widest text-coffee-600 flex items-center gap-1">☕ Coffee Series</h3>
-                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     @foreach($menuCatalog as $index => $item)
                         @if($item['kategori'] === 'Coffee')
                             <div wire:click="addToCart({{ $index }})" class="nb-card-sm bg-latte/20 p-3 cursor-pointer hover:bg-caramel/30 transition duration-100 group flex items-center gap-4">

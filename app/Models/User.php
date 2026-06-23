@@ -43,7 +43,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
  * @property-read Collection<int, Membership> $teamMemberships
  * @property-read Collection<int, Team> $teams
  * @property-read Collection<int, Transaction> $transactions
- * @property-read Collection<int, CrmNotification> $crmNotifications
+ * @property-read Collection<int, CrmNotification> $CrmNotifications
  * @property-read Collection<int, RewardRedemption> $rewardRedemptions
  */
 #[Fillable(['name', 'email', 'password', 'current_team_id', 'no_hp', 'total_poin', 'total_pengeluaran', 'tier_status', 'role', 'behavior_label'])]
@@ -90,7 +90,7 @@ class User extends Authenticatable implements PasskeyUser
     /**
      * @return HasMany<CrmNotification, $this>
      */
-    public function crmNotifications(): HasMany
+    public function CrmNotifications(): HasMany
     {
         return $this->hasMany(CrmNotification::class);
     }

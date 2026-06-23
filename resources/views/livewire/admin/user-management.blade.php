@@ -2,7 +2,7 @@
     <!-- TICKER -->
     <div class="ticker-bar bg-espresso text-cream py-2">
         <div class="marquee inline-block text-xs font-extrabold tracking-widest uppercase">
-            ☕ MANAJEMEN AKUN — KELOLA DATA MEMBER CRM — EDIT TIER & POIN — SMART COFFEE CRM — ☕ MANAJEMEN AKUN —
+            ☕ MANAJEMEN AKUN — KELOLA DATA MEMBER — EDIT TIER & POIN — Smart Coffee — ☕ MANAJEMEN AKUN —
         </div>
     </div>
 
@@ -10,7 +10,7 @@
     <div class="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         <div>
             <h1 class="text-3xl font-black text-espresso dark:text-cream uppercase tracking-tight">👥 Manajemen Akun Member</h1>
-            <p class="text-coffee-600 dark:text-coffee-300 font-semibold mt-1">Kelola seluruh data akun member CRM Smart Coffee.</p>
+            <p class="text-coffee-600 dark:text-coffee-300 font-semibold mt-1">Kelola seluruh data akun member Smart Coffee.</p>
         </div>
         <button wire:click="openCreateModal" class="nb-btn bg-mint-y2k text-espresso flex items-center gap-2">
             <span class="text-lg">➕</span> Tambah Member Baru

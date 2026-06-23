@@ -2,7 +2,7 @@
     <!-- ☕ TICKER BAR -->
     <div class="ticker-bar bg-espresso text-cream py-2">
         <div class="marquee inline-block text-xs font-extrabold tracking-widest uppercase">
-            ☕ SMART COFFEE CRM — OPERATIONAL & ANALYTICAL CRM DASHBOARD — DATA-DRIVEN DECISION MAKING — CUSTOMER LOYALTY ENGINE — KNN PERSONALIZATION — ☕ SMART COFFEE CRM —
+            ☕ Smart Coffee — OPERATIONAL & ANALYTICAL DASHBOARD — DATA-DRIVEN DECISION MAKING — CUSTOMER LOYALTY ENGINE — KNN PERSONALIZATION — ☕ Smart Coffee —
         </div>
     </div>
 
@@ -169,13 +169,13 @@
         </div>
     </div>
 
-    <!-- ROW 2: BROADCASTER & LIVE CRM ACTIVITY FEED -->
+    <!-- ROW 2: BROADCASTER & LIVE ACTIVITY FEED -->
     <div x-show="activeTab === 'analytics'" class="grid grid-cols-1 gap-6 lg:grid-cols-3 pt-6">
         <!-- Campaign Broadcaster -->
         <div class="nb-card bg-cream dark:bg-coffee-900 p-6 flex flex-col justify-between space-y-4">
             <div>
                 <h3 class="text-lg font-black text-espresso dark:text-cream uppercase flex items-center gap-1.5">
-                    📢 Broadcast Kampanye CRM
+                    📢 Broadcast Kampanye
                 </h3>
                 <p class="text-xs text-coffee-600 dark:text-coffee-300 mt-1 font-semibold">
                     Kirim pesan WhatsApp & Email promo serentak ke seluruh member terdaftar.
@@ -198,11 +198,11 @@
             </form>
         </div>
 
-        <!-- Live CRM Activity Feed -->
+        <!-- Live Activity Feed -->
         <div class="lg:col-span-2 nb-card bg-cream dark:bg-coffee-900 p-6 space-y-4">
             <div>
                 <h3 class="text-lg font-black text-espresso dark:text-cream uppercase flex items-center gap-1.5">
-                    ⚡ Feed Aktivitas CRM Terkini
+                    ⚡ Feed Aktivitas Terkini
                 </h3>
                 <p class="text-xs text-coffee-600 dark:text-coffee-300 mt-1 font-semibold">
                     Simulasi log push notifikasi otomatis & aktivitas loyalty member yang real-time.
@@ -224,7 +224,7 @@
                         <p class="text-coffee-600 dark:text-coffee-300 text-[10px] line-clamp-2">{{ $notif->message }}</p>
                     </div>
                 @empty
-                    <p class="col-span-2 text-center text-xs text-coffee-400 py-10 font-bold">Belum ada aktivitas push CRM.</p>
+                    <p class="col-span-2 text-center text-xs text-coffee-400 py-10 font-bold">Belum ada aktivitas push notifikasi.</p>
                 @endforelse
             </div>
         </div>

@@ -29,7 +29,7 @@
                     <span class="flex h-14 w-14 items-center justify-center rounded-2xl border-3 border-black bg-caramel text-3xl shadow-[3px_3px_0px_#1a1a1a] transition group-hover:scale-105">
                         ☕
                     </span>
-                    <span class="text-xl tracking-tight mt-1 text-espresso dark:text-cream">Smart Coffee CRM</span>
+                    <span class="text-xl tracking-tight mt-1 text-espresso dark:text-cream">Smart Coffee</span>
                 </a>
             </div>
 

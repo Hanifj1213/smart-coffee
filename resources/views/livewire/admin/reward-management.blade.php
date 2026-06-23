@@ -2,7 +2,7 @@
     <!-- TICKER -->
     <div class="ticker-bar bg-matcha text-espresso py-2">
         <div class="marquee inline-block text-xs font-extrabold tracking-widest uppercase">
-            🎁 KATALOG REWARD — KELOLA HADIAH & VOUCHER LOYALTY — TUKAR POIN PELANGGAN — 🎁 SMART COFFEE CRM —
+            🎁 KATALOG REWARD — KELOLA HADIAH & VOUCHER LOYALTY — TUKAR POIN PELANGGAN — 🎁 Smart Coffee —
         </div>
     </div>
 
@@ -54,7 +54,7 @@
                                         <p class="font-black text-espresso dark:text-cream">
                                             {{ $reward->nama }}
                                             @if($reward->discount_percent > 0)
-                                                <span class="nb-badge bg-purple-y2k text-espresso text-[9px] ml-1">🎟️ {{ $reward->discount_percent }}% Promo</span>
+                                                <span class="text-[9px] text-coffee-400 font-bold ml-1">({{ $reward->discount_percent }}%)</span>
                                             @endif
                                         </p>
                                         <p class="text-[10px] text-coffee-400 line-clamp-1">{{ $reward->deskripsi }}</p>

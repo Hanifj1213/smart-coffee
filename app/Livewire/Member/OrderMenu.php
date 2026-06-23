@@ -276,7 +276,7 @@ class OrderMenu extends Component
         CrmNotification::create([
             'user_id' => $user->id,
             'type' => 'Email',
-            'message' => "Detail Pesanan Smart Coffee CRM:\nTotal Bayar: Rp ".number_format($totalBayar, 0, ',', '.')."\nTambahan Poin: {$pointsEarned} poin\nStatus Tier: {$user->tier_status}\nPesanan sedang diproses!",
+            'message' => "Detail Pesanan Smart Coffee:\nTotal Bayar: Rp ".number_format($totalBayar, 0, ',', '.')."\nTambahan Poin: {$pointsEarned} poin\nStatus Tier: {$user->tier_status}\nPesanan sedang diproses!",
         ]);
 
         $this->lastTxData = [

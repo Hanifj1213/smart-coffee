@@ -1,6 +1,6 @@
-# ☕ Smart Coffee CRM
+# ☕ Smart Coffee
 
-Sistem Customer Relationship Management (CRM) berbasis web untuk kedai kopi, dibangun dengan **Laravel 13**, **Livewire 4**, dan **Flux UI**. Dilengkapi dengan algoritma **K-Nearest Neighbors (KNN)** untuk segmentasi perilaku pelanggan secara otomatis.
+Sistem Customer Relationship Management (Sistem) berbasis web untuk kedai kopi, dibangun dengan **Laravel 13**, **Livewire 4**, dan **Flux UI**. Dilengkapi dengan algoritma **K-Nearest Neighbors (KNN)** untuk segmentasi perilaku pelanggan secara otomatis.
 
 ---
 
@@ -9,7 +9,7 @@ Sistem Customer Relationship Management (CRM) berbasis web untuk kedai kopi, dib
 ### 👨‍💼 Admin
 | Fitur | Deskripsi |
 |---|---|
-| **Dashboard Analitik** | Ringkasan metrik CRM: total member, revenue, distribusi tier, scatter-plot clustering pelanggan |
+| **Dashboard Analitik** | Ringkasan metrik Sistem: total member, revenue, distribusi tier, scatter-plot clustering pelanggan |
 | **Manajemen Menu** | CRUD menu kopi, minuman non-kopi, dan makanan |
 | **Manajemen Akun** | Kelola akun admin, kasir, & member — edit tier, label perilaku, dan poin |
 | **Katalog Reward** | Kelola reward (voucher, merchandise, produk gratis) |
@@ -49,8 +49,8 @@ Sistem Customer Relationship Management (CRM) berbasis web untuk kedai kopi, dib
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username/smart-coffee-crm.git
-cd smart-coffee-crm
+git clone https://github.com/username/smart-coffee-Sistem.git
+cd smart-coffee-Sistem
 ```
 
 ### 2. Install Dependency PHP
@@ -141,7 +141,7 @@ Setiap role hanya bisa mengakses halaman sesuai hak aksesnya. Jika mencoba menga
 ## 📁 Struktur Folder Penting
 
 ```
-smart-coffee-crm/
+smart-coffee-Sistem/
 ├── app/
 │   ├── Livewire/
 │   │   ├── Admin/          # Komponen admin: Dashboard, Menu, User, Reward
@@ -196,4 +196,4 @@ npm run build
 
 ## 📄 Lisensi
 
-Project ini dibuat untuk keperluan tugas mata kuliah CRM.
+Project ini dibuat untuk keperluan tugas mata kuliah Sistem.

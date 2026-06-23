@@ -4,12 +4,14 @@ namespace App\Livewire\Admin;
 
 use App\Models\Menu;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class MenuManagement extends Component
 {
-    use WithPagination;
+    use WithFileUploads, WithPagination;
 
     public string $search = '';
 
@@ -28,6 +30,10 @@ class MenuManagement extends Component
     public int $rasa_manis = 3;
 
     public string $icon = '☕';
+
+    public $photo = null; // file upload
+
+    public ?string $existingImage = null; // existing image path for edit mode
 
     public bool $is_active = true;
 
@@ -48,7 +54,8 @@ class MenuManagement extends Component
             'harga' => 'required|integer|min:0',
             'kategori' => 'required|in:Coffee,Non-Coffee,Food',
             'rasa_manis' => 'required|integer|min:1|max:5',
-            'icon' => 'required|string|max:10',
+            'icon' => 'nullable|string|max:10',
+            'photo' => 'nullable|image|max:2048', // max 2MB
             'is_active' => 'boolean',
         ];
     }
@@ -69,7 +76,9 @@ class MenuManagement extends Component
         $this->harga = $menu->harga;
         $this->kategori = $menu->kategori;
         $this->rasa_manis = $menu->rasa_manis;
-        $this->icon = $menu->icon;
+        $this->icon = $menu->icon ?? '☕';
+        $this->photo = null;
+        $this->existingImage = $menu->image;
         $this->is_active = $menu->is_active;
         $this->successMessage = '';
         $this->showModal = true;
@@ -78,18 +87,56 @@ class MenuManagement extends Component
     public function closeModal(): void
     {
         $this->showModal = false;
+        $this->photo = null;
+        $this->existingImage = null;
+    }
+
+    public function removePhoto(): void
+    {
+        $this->photo = null;
     }
 
     public function save(): void
     {
         $validated = $this->validate();
 
+        // Handle image upload
+        $imagePath = $this->existingImage; // keep existing if editing
+        if ($this->photo) {
+            $slug = Str::slug($this->nama);
+            $extension = $this->photo->getClientOriginalExtension() ?: 'png';
+            $filename = $slug . '.' . $extension;
+            $destination = public_path('images' . DIRECTORY_SEPARATOR . 'menu');
+
+            // Ensure directory exists
+            if (!is_dir($destination)) {
+                mkdir($destination, 0755, true);
+            }
+
+            // Copy from Livewire temp to public folder
+            $tempPath = $this->photo->getRealPath();
+            $targetPath = $destination . DIRECTORY_SEPARATOR . $filename;
+            copy($tempPath, $targetPath);
+
+            $imagePath = '/images/menu/' . $filename;
+        }
+
+        $data = [
+            'nama' => $validated['nama'],
+            'harga' => $validated['harga'],
+            'kategori' => $validated['kategori'],
+            'rasa_manis' => $validated['rasa_manis'],
+            'icon' => $validated['icon'] ?? '☕',
+            'image' => $imagePath,
+            'is_active' => $validated['is_active'],
+        ];
+
         if ($this->editId) {
             $menu = Menu::findOrFail($this->editId);
-            $menu->update($validated);
+            $menu->update($data);
             $this->successMessage = 'Menu berhasil diperbarui!';
         } else {
-            Menu::create($validated);
+            Menu::create($data);
             $this->successMessage = 'Menu baru berhasil ditambahkan!';
         }
 
@@ -119,6 +166,8 @@ class MenuManagement extends Component
         $this->kategori = 'Coffee';
         $this->rasa_manis = 3;
         $this->icon = '☕';
+        $this->photo = null;
+        $this->existingImage = null;
         $this->is_active = true;
     }
 

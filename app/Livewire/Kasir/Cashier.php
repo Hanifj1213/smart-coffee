@@ -235,13 +235,13 @@ class Cashier extends Component
         CrmNotification::create([
             'user_id' => $user->id,
             'type' => 'WhatsApp',
-            'message' => "Halo {$user->name}, selamat! Anda terdaftar sebagai member di Smart Coffee CRM. Kumpulkan transaksi untuk naik ke Silver dan nikmati diskon 5%!",
+            'message' => "Halo {$user->name}, selamat! Anda terdaftar sebagai member di Smart Coffee. Kumpulkan transaksi untuk naik ke Silver dan nikmati diskon 5%!",
         ]);
 
         CrmNotification::create([
             'user_id' => $user->id,
             'type' => 'Email',
-            'message' => 'Selamat bergabung di Smart Coffee CRM! Dapatkan update promo personal terbaik Anda di dashboard.',
+            'message' => 'Selamat bergabung di Smart Coffee! Dapatkan update promo personal terbaik Anda di dashboard.',
         ]);
 
         $this->selectedUserId = $user->id;
@@ -384,7 +384,7 @@ class Cashier extends Component
         CrmNotification::create([
             'user_id' => $user->id,
             'type' => 'Email',
-            'message' => "Detail Pembelian Smart Coffee CRM:\nTotal Bayar: Rp ".number_format($totalBayar, 0, ',', '.')."\nTambahan Poin: {$pointsEarned} poin\nStatus Tier: {$user->tier_status}\nTerima kasih atas kunjungan Anda!",
+            'message' => "Detail Pembelian Smart Coffee:\nTotal Bayar: Rp ".number_format($totalBayar, 0, ',', '.')."\nTambahan Poin: {$pointsEarned} poin\nStatus Tier: {$user->tier_status}\nTerima kasih atas kunjungan Anda!",
         ]);
 
         $this->lastTxData = [

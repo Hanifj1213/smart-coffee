@@ -2,7 +2,7 @@
     <!-- TICKER -->
     <div class="ticker-bar bg-espresso text-cream py-2">
         <div class="marquee inline-block text-xs font-extrabold tracking-widest uppercase">
-            🔍 PROFIL MEMBER — CEK INFO LOYALITAS PELANGGAN — SMART COFFEE CRM — ☕
+            🔍 PROFIL MEMBER — CEK INFO LOYALITAS PELANGGAN — Smart Coffee — ☕
         </div>
     </div>
 

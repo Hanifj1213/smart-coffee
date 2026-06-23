@@ -2,7 +2,7 @@
     <!-- TICKER -->
     <div class="ticker-bar bg-caramel text-espresso py-2">
         <div class="marquee inline-block text-xs font-extrabold tracking-widest uppercase">
-            ☕ MANAJEMEN MENU — TAMBAH & KELOLA MENU KOPI, NON-KOPI & PASTRY — TAMPIL OTOMATIS DI KASIR & ORDER MEMBER — ☕ SMART COFFEE CRM —
+            ☕ MANAJEMEN MENU — TAMBAH & KELOLA MENU KOPI, NON-KOPI & PASTRY — TAMPIL OTOMATIS DI KASIR & ORDER MEMBER — ☕ Smart Coffee —
         </div>
     </div>
 
@@ -106,9 +106,23 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-black text-coffee-600 uppercase mb-1">Icon (Emoji)</label>
-                            <input type="text" wire:model="icon" maxlength="10" class="nb-input w-full bg-white dark:bg-coffee-800 px-3 py-2 text-sm text-espresso dark:text-cream border-2 border-black">
-                            @error('icon') <p class="text-xs text-berry font-black mt-1">{{ $message }}</p> @enderror
+                            <label class="block text-xs font-black text-coffee-600 uppercase mb-1">Gambar Menu</label>
+                            <input type="file" wire:model="photo" accept="image/*" class="nb-input w-full bg-white dark:bg-coffee-800 px-3 py-2 text-xs text-espresso dark:text-cream border-2 border-black file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-2 file:border-black file:text-xs file:font-black file:bg-caramel file:text-espresso hover:file:bg-yellow-y2k cursor-pointer">
+                            <div wire:loading wire:target="photo" class="text-xs text-coffee-400 font-bold mt-1">Mengupload...</div>
+                            @error('photo') <p class="text-xs text-berry font-black mt-1">{{ $message }}</p> @enderror
+
+                            {{-- Preview --}}
+                            @if($photo)
+                                <div class="mt-2 relative inline-block">
+                                    <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 rounded-xl object-cover border-2 border-black shadow-[3px_3px_0px_#1a1a1a]">
+                                    <button type="button" wire:click="removePhoto" class="absolute -top-2 -right-2 bg-berry text-white rounded-full w-5 h-5 text-xs font-black leading-none flex items-center justify-center border-2 border-black">✕</button>
+                                </div>
+                            @elseif($existingImage)
+                                <div class="mt-2">
+                                    <p class="text-[10px] text-coffee-400 font-bold mb-1">Gambar saat ini:</p>
+                                    <img src="{{ $existingImage }}" class="w-20 h-20 rounded-xl object-cover border-2 border-black shadow-[3px_3px_0px_#1a1a1a]">
+                                </div>
+                            @endif
                         </div>
                     </div>
 
